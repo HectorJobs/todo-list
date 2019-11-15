@@ -3,22 +3,51 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Complexity;
 
 class ComplexityController extends Controller
 {
-    public function index(){
-
+    public function showView(){
+        return view('leader.complexity');
     }
 
-    public function store(){
-
+    public function index(Request $request){
+        $complexities = Complexity::all();
+        return json_encode(["intRes" => 200, "jsonRes" => $complexities]);
     }
 
-    public function update(){
-
+    public function store(Request $request){
+        try{
+            $arrayReq = json_decode($request->getContent(), true);
+            $complexity = new Complexity($arrayReq);
+            $complexity->save();
+            return json_encode(["intRes" => 200]);
+        }catch(Exception $e){
+            return json_encode(["intRes" => 500]);
+        }
     }
 
-    public function destroy(){
+    public function update(Request $request){
+        try{
+            $arrayReq = json_decode($request->getContent(), true);
+            $complexity = Complexity::find($arrayReq['id']);
+            $complexity->name = $arrayReq['name'];
+            $complexity->color = $arrayReq['color'];
+            $complexity->save();
+            return json_encode(["intRes" => 200]);
+        }catch(Exception $e){
+            return json_encode(["intRes" => 500]);
+        }
+    }
 
+    public function destroy(Request $request){
+        try{
+            $arrayReq = json_decode($request->getContent(), true);
+            $complexity = Complexity::find($arrayReq['id']);
+            $complexity->delete();
+            return json_encode(["intRes" => 200]);
+        }catch(Exception $e){
+            return json_encode(["intRes" => 500]);
+        }
     }
 }

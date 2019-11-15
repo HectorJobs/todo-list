@@ -3,23 +3,51 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Progress;
 
 class ProgressController extends Controller
 {
 
-    public function index(){
-
+    public function showView(){
+        return view('leader.progress');
     }
 
-    public function store(){
-
+    public function index(Request $request){
+        $progress = Progress::all();
+        return json_encode(["intRes" => 200, "jsonRes" => $progress]);
     }
 
-    public function update(){
-
+    public function store(Request $request){
+        try{
+            $arrayReq = json_decode($request->getContent(), true);
+            $progress = new Progress($arrayReq);
+            $progress->save();
+            return json_encode(["intRes" => 200]);
+        }catch(Exception $e){
+            return json_encode(["intRes" => 500]);
+        }
     }
 
-    public function destroy(){
+    public function update(Request $request){
+        try{
+            $arrayReq = json_decode($request->getContent(), true);
+            $progress = Progress::find($arrayReq['id']);
+            $progress->name = $arrayReq['name'];
+            $progress->save();
+            return json_encode(["intRes" => 200]);
+        }catch(Exception $e){
+            return json_encode(["intRes" => 500]);
+        }
+    }
 
+    public function destroy(Request $request){
+        try{
+            $arrayReq = json_decode($request->getContent(), true);
+            $progress = Progress::find($arrayReq['id']);
+            $progress->delete();
+            return json_encode(["intRes" => 200]);
+        }catch(Exception $e){
+            return json_encode(["intRes" => 500]);
+        }
     }
 }
