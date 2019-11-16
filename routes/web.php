@@ -12,5 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('leader')->group(function () {
+    Route::get('/complexities', 'ComplexityController@showView')->name('complexity');
+    Route::get('/progress', 'ProgressController@showView')->name('progress');
 });
