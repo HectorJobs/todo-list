@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div class="container">
+        <div class="">
             <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card">
+                <div class="col-lg-12">
+                    <div class="card ml-5 mr-5">
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-lg-8">
@@ -95,7 +95,6 @@ export default {
         return {
             arrayProgress:[],
             progress: {
-                id: 0,
                 name: ""
             }
         }
@@ -106,7 +105,6 @@ export default {
     methods: {
         getAllProgress(){
             let that = this;
-            that.progress.id = 0;
             that.progress.name = "";
             axios.get('http://localhost:8000/api/progress').then((result) => {
                 that.arrayProgress = result.data.jsonRes;

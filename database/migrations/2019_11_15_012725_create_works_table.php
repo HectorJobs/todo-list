@@ -21,6 +21,7 @@ class CreateWorksTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('time');
+            $table->date('dead_line');
             $table->foreign('complexity_id')->references('id')->on('complexities');
             $table->foreign('progress_id')->references('id')->on('progress');
             $table->foreign('user_id')->references('id')->on('users');
