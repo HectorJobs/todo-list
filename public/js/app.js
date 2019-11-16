@@ -1959,6 +1959,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getAllComplexities: function getAllComplexities() {
       var that = this;
+      that.complexity.id = 0;
+      that.complexity.name = "";
+      that.complexity.color = "#000000";
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://localhost:8000/api/complexities').then(function (result) {
         that.arrayComplexities = result.data.jsonRes;
       })["catch"](function (err) {
@@ -1975,7 +1978,8 @@ __webpack_require__.r(__webpack_exports__);
         window.$('.modal').modal('hide');
         sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
           icon: 'success',
-          title: 'Registro exitoso'
+          title: 'Registro exitoso',
+          confirmButtonColor: "#38c172"
         });
         that.getAllComplexities();
       })["catch"](function (err) {
@@ -1993,7 +1997,8 @@ __webpack_require__.r(__webpack_exports__);
         window.$('.modal').modal('hide');
         sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
           icon: 'success',
-          title: 'Actualización exitosa'
+          title: 'Actualización exitosa',
+          confirmButtonColor: "#38c172"
         });
         that.getAllComplexities();
       })["catch"](function (err) {
@@ -2024,7 +2029,8 @@ __webpack_require__.r(__webpack_exports__);
           that.getAllComplexities();
           sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
             icon: 'success',
-            title: 'Eliminado exitoso'
+            title: 'Eliminado exitoso',
+            confirmButtonColor: "#38c172"
           });
         }
       });
@@ -2078,6 +2084,23 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2152,21 +2175,93 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log("hola mundo");
-  },
   data: function data() {
     return {
       arrayProgress: [],
-      name: ""
+      progress: {
+        id: 0,
+        name: ""
+      }
     };
   },
+  mounted: function mounted() {
+    this.getAllProgress();
+  },
   methods: {
-    getAllProcess: function getAllProcess() {},
-    storeProgress: function storeProgress() {},
-    updateProgress: function updateProgress() {},
-    deleteProgress: function deleteProgress() {}
+    getAllProgress: function getAllProgress() {
+      var that = this;
+      that.progress.id = 0;
+      that.progress.name = "";
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://localhost:8000/api/progress').then(function (result) {
+        that.arrayProgress = result.data.jsonRes;
+      })["catch"](function (err) {
+        console.error(err);
+      });
+    },
+    storeProgress: function storeProgress() {
+      var that = this;
+      var json = {
+        name: that.progress.name
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('http://localhost:8000/api/store/progress', json).then(function (result) {
+        window.$('.modal').modal('hide');
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+          icon: 'success',
+          title: 'Registro exitoso'
+        });
+        that.getAllProgress();
+      })["catch"](function (err) {
+        console.error(err);
+      });
+    },
+    updateProgress: function updateProgress(progress) {
+      var that = this;
+      var json = {
+        id: progress.id,
+        name: progress.name
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('http://localhost:8000/api/update/progress', json).then(function (result) {
+        window.$('.modal').modal('hide');
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+          icon: 'success',
+          title: 'Actualización exitosa'
+        });
+        that.getAllProgress();
+      })["catch"](function (err) {
+        console.error(err);
+      });
+    },
+    deleteProgress: function deleteProgress(progress) {
+      var that = this;
+      var json = {
+        id: progress.id
+      };
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        icon: 'warning',
+        title: '¿Esta seguro de eliminar este registro?',
+        showCancelButton: true,
+        showLoaderOnConfirm: true,
+        confirmButtonColor: "#38c172",
+        cancelButtonColor: "#c51f1a",
+        preConfirm: function preConfirm() {
+          axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('http://localhost:8000/api/delete/progress', json).then(function (result) {
+            if (result.intRes == 200) return true;
+          })["catch"](function (err) {
+            console.error(err);
+          });
+        }
+      }).then(function (result) {
+        if (result && !result.dismiss) {
+          that.getAllProgress();
+          sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+            icon: 'success',
+            title: 'Eliminado exitoso'
+          });
+        }
+      });
+    }
   }
 });
 
@@ -40903,139 +40998,214 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _vm._m(0),
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c("div", { staticClass: "col-md-8" }, [
+            _c("div", { staticClass: "card" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c(
+                  "table",
+                  { staticClass: "table table-striped table-bordered" },
+                  [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.arrayProgress, function(progress) {
+                        return _c("tr", { key: progress.id }, [
+                          _c("td", {
+                            domProps: { textContent: _vm._s(progress.id) }
+                          }),
+                          _vm._v(" "),
+                          _c("td", {
+                            domProps: { textContent: _vm._s(progress.name) }
+                          }),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-warning btn-sm",
+                                attrs: {
+                                  "data-toggle": "modal",
+                                  "data-target": "#modalUpdate" + progress.id
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            Editar\n                                        "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-danger btn-sm",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteProgress(progress)
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            Borrar\n                                        "
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "modal fade", attrs: { id: "modalStore" } }, [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(2),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "modal-body" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "name" } }, [_vm._v("Nombre:")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.progress.name,
+                      expression: "progress.name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.progress.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.progress, "name", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
               _c(
-                "table",
-                { staticClass: "table table-striped table-bordered" },
-                [
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.arrayComplexities, function(complexity) {
-                      return _c("tr", { key: complexity.id }, [
-                        _c("td", {
-                          domProps: { textContent: _vm._s(complexity.id) }
-                        }),
-                        _vm._v(" "),
-                        _c("td", {
-                          domProps: { textContent: _vm._s(complexity.name) }
-                        }),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("div", {
-                            style:
-                              "height:20px; width:20px; background:" +
-                              complexity.color
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _vm._m(2, true)
-                      ])
-                    }),
-                    0
-                  )
-                ]
+                "button",
+                {
+                  staticClass: "btn btn-secondary-outline",
+                  attrs: { "data-dis": "", miss: "modal" }
+                },
+                [_vm._v("Cancelar")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-success",
+                  on: {
+                    click: function($event) {
+                      return _vm.storeProgress()
+                    }
+                  }
+                },
+                [_vm._v("Registrar")]
               )
             ])
           ])
         ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "modal fade", attrs: { id: "modalStore" } }, [
-      _c("div", { staticClass: "modal-dialog" }, [
-        _c("div", { staticClass: "modal-content" }, [
-          _vm._m(3),
-          _vm._v(" "),
-          _c("div", { staticClass: "modal-body" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "name" } }, [_vm._v("Nombre:")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.name,
-                    expression: "name"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text" },
-                domProps: { value: _vm.name },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.name = $event.target.value
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "name" } }, [_vm._v("Color:")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.color,
-                    expression: "color"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "color" },
-                domProps: { value: _vm.color },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.color = $event.target.value
-                  }
-                }
-              })
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.arrayProgress, function(progress) {
+        return _c(
+          "div",
+          {
+            key: progress.id,
+            staticClass: "modal fade",
+            attrs: { id: "modalUpdate" + progress.id }
+          },
+          [
+            _c("div", { staticClass: "modal-dialog" }, [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(3, true),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "name" } }, [
+                      _vm._v("Nombre:")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: progress.name,
+                          expression: "progress.name"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: progress.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(progress, "name", $event.target.value)
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary-outline",
+                      attrs: { "data-dismiss": "modal" }
+                    },
+                    [_vm._v("Cancelar")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      on: {
+                        click: function($event) {
+                          return _vm.updateProgress(progress)
+                        }
+                      }
+                    },
+                    [_vm._v("Actualizar")]
+                  )
+                ])
+              ])
             ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "modal-footer" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-secondary-outline",
-                attrs: { "data-dimiss": "modal" }
-              },
-              [_vm._v("Cancelar")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-success",
-                on: {
-                  click: function($event) {
-                    return _vm.storeProgress()
-                  }
-                }
-              },
-              [_vm._v("Registrar")]
-            )
-          ])
-        ])
-      ])
-    ])
-  ])
+          ]
+        )
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = [
   function() {
@@ -41055,7 +41225,7 @@ var staticRenderFns = [
               staticClass: "btn btn-success",
               attrs: { href: "#modalStore", "data-toggle": "modal" }
             },
-            [_vm._v("Registrar progreso")]
+            [_vm._v("Registrar progresos")]
           )
         ])
       ])
@@ -41079,18 +41249,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("button", { staticClass: "btn btn-warning btn-sm" }, [
-        _vm._v(
-          "\n                                            Editar\n                                        "
-        )
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("span", { staticClass: "modal-title" }, [
+        _vm._v("Agregar complejidad")
       ]),
       _vm._v(" "),
-      _c("button", { staticClass: "btn btn-danger btn-sm" }, [
-        _vm._v(
-          "\n                                            Borrar\n                                        "
-        )
-      ])
+      _c(
+        "button",
+        { staticClass: "close", attrs: { "data-dismiss": "modal" } },
+        [_vm._v("×")]
+      )
     ])
   },
   function() {
@@ -41099,12 +41267,12 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
       _c("span", { staticClass: "modal-title" }, [
-        _vm._v("Agregar complejidad")
+        _vm._v("Actualizar complejidad")
       ]),
       _vm._v(" "),
       _c(
         "button",
-        { staticClass: "close", attrs: { "data-dimiss": "modal" } },
+        { staticClass: "close", attrs: { "data-dismiss": "modal" } },
         [_vm._v("×")]
       )
     ])

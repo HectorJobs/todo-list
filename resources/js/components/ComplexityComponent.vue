@@ -117,6 +117,9 @@ export default {
     methods: {
         getAllComplexities(){
             let that = this;
+            that.complexity.id = 0;
+            that.complexity.name = "";
+            that.complexity.color = "#000000";
             axios.get('http://localhost:8000/api/complexities').then((result) => {
                 that.arrayComplexities = result.data.jsonRes;
             }).catch((err) => {
@@ -134,6 +137,7 @@ export default {
                 Swal.fire({
                     icon: 'success',
                     title: 'Registro exitoso',
+                    confirmButtonColor: "#38c172"
                 });
                 that.getAllComplexities();                
             }).catch((err) => {
@@ -152,6 +156,7 @@ export default {
                 Swal.fire({
                     icon: 'success',
                     title: 'Actualización exitosa',
+                    confirmButtonColor: "#38c172"
                 });
                 that.getAllComplexities();
             }).catch((err) => {
@@ -183,6 +188,7 @@ export default {
                     Swal.fire({
                         icon: 'success',
                         title: 'Eliminado exitoso',
+                        confirmButtonColor: "#38c172"
                     });
                 }
             });

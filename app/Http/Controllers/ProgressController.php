@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Progress;
+use Auth;
 
 class ProgressController extends Controller
 {
 
     public function showView(){
+        if(!Auth::user()) return redirect('/login');
         return view('leader.progress');
     }
 

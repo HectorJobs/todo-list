@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Complexity;
+use Auth;
 
 class ComplexityController extends Controller
 {
     public function showView(){
+        if(!Auth::user()) return redirect('/login');
         return view('leader.complexity');
     }
 

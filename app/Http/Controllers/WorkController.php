@@ -9,6 +9,7 @@ use App\User;
 class WorkController extends Controller
 {
     public function index(Request $request){
+        if(!Auth::user()) return redirect('/login');
         $works = Work::all();
         $users = User::all();
         return json_encode(["intRes" => 200, "arrayWorks" => $works, "arrayUsers" => $users]);
