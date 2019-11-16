@@ -2386,6 +2386,59 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2463,6 +2516,59 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -41563,8 +41669,717 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", {}, [
+  return _c(
+    "div",
+    [
+      _c("div", {}, [
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c("div", { staticClass: "col-lg-12" }, [
+            _c("div", { staticClass: "card ml-5 mr-5" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c(
+                  "table",
+                  { staticClass: "table table-striped table-bordered" },
+                  [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.arrayWorks, function(work) {
+                        return _c("tr", { key: work.id }, [
+                          _c("td", {
+                            domProps: { textContent: _vm._s(work.name) }
+                          }),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: work.time,
+                                  expression: "work.time"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: { type: "number" },
+                              domProps: { value: work.time },
+                              on: {
+                                change: function($event) {
+                                  return _vm.updateWork(work)
+                                },
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(work, "time", $event.target.value)
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: work.user_id,
+                                    expression: "work.user_id"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  name: "work_user_id",
+                                  id: "work_user_id"
+                                },
+                                domProps: { value: work.user_id },
+                                on: {
+                                  change: [
+                                    function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.$set(
+                                        work,
+                                        "user_id",
+                                        $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      )
+                                    },
+                                    function($event) {
+                                      return _vm.updateWork(work)
+                                    }
+                                  ]
+                                }
+                              },
+                              _vm._l(_vm.arrayUsers, function(user) {
+                                return _c("option", {
+                                  key: user.id,
+                                  domProps: {
+                                    value: user.id,
+                                    textContent: _vm._s(user.name)
+                                  }
+                                })
+                              }),
+                              0
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", {
+                            style: "color:" + work.complexity.color,
+                            domProps: {
+                              textContent: _vm._s(work.complexity.name)
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: work.progress_id,
+                                    expression: "work.progress_id"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  name: "work_progress_id",
+                                  id: "work_progress_id"
+                                },
+                                domProps: { value: work.progress_id },
+                                on: {
+                                  change: [
+                                    function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.$set(
+                                        work,
+                                        "progress_id",
+                                        $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      )
+                                    },
+                                    function($event) {
+                                      return _vm.updateWork(work)
+                                    }
+                                  ]
+                                }
+                              },
+                              _vm._l(_vm.arrayProgress, function(progress) {
+                                return _c("option", {
+                                  key: progress.id,
+                                  domProps: {
+                                    value: progress.id,
+                                    textContent: _vm._s(progress.name)
+                                  }
+                                })
+                              }),
+                              0
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", {
+                            domProps: { textContent: _vm._s(work.dead_line) }
+                          }),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary btn-sm",
+                                attrs: {
+                                  type: "button",
+                                  "data-toggle": "modal",
+                                  "data-target": "#modalDetails" + work.id
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                            Ver detalles\n                                        "
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "modal fade", attrs: { id: "modalStore" } }, [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "form-group col-lg-6" }, [
+                  _c("label", { attrs: { for: "name" } }, [
+                    _vm._v("Objetivo:*")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.work.name,
+                        expression: "work.name"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", required: "" },
+                    domProps: { value: _vm.work.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.work, "name", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group col-lg-6" }, [
+                  _c("label", { attrs: { for: "name" } }, [
+                    _vm._v("Asinado a:*")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.work.user_id,
+                          expression: "work.user_id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "user_id", id: "user_id", required: "" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.work,
+                            "user_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    _vm._l(_vm.arrayUsers, function(user) {
+                      return _c("option", {
+                        key: user.id,
+                        domProps: {
+                          value: user.id,
+                          textContent: _vm._s(user.name)
+                        }
+                      })
+                    }),
+                    0
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "form-group col-lg-6" }, [
+                  _c("label", { attrs: { for: "name" } }, [
+                    _vm._v("Complejidad:*")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.work.complexity_id,
+                          expression: "work.complexity_id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        name: "complexity_id",
+                        id: "complexity_id",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.work,
+                            "complexity_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    _vm._l(_vm.arrayComplexities, function(complexity) {
+                      return _c("option", {
+                        key: complexity.id,
+                        domProps: {
+                          value: complexity.id,
+                          textContent: _vm._s(complexity.name)
+                        }
+                      })
+                    }),
+                    0
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group col-lg-6" }, [
+                  _c("label", { attrs: { for: "name" } }, [
+                    _vm._v("Estatus:*")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.work.progress_id,
+                          expression: "work.progress_id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        name: "progress_id",
+                        id: "progress_id",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.work,
+                            "progress_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    _vm._l(_vm.arrayProgress, function(progress) {
+                      return _c("option", {
+                        key: progress.id,
+                        domProps: {
+                          value: progress.id,
+                          textContent: _vm._s(progress.name)
+                        }
+                      })
+                    }),
+                    0
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "form-group col-lg-12" }, [
+                  _c("label", { attrs: { for: "name" } }, [
+                    _vm._v("Fecha estimada:*")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.work.dead_line,
+                        expression: "work.dead_line"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "date", required: "" },
+                    domProps: { value: _vm.work.dead_line },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.work, "dead_line", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "form-group col-lg-12" }, [
+                  _c("label", { attrs: { for: "name" } }, [
+                    _vm._v("Descripción:*")
+                  ]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.work.description,
+                        expression: "work.description"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      name: "description",
+                      id: "description",
+                      required: "",
+                      cols: "30",
+                      rows: "10"
+                    },
+                    domProps: { value: _vm.work.description },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.work, "description", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary-outline",
+                  attrs: { "data-dismiss": "modal" }
+                },
+                [_vm._v("Cancelar")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-success",
+                  on: {
+                    click: function($event) {
+                      return _vm.storeWork()
+                    }
+                  }
+                },
+                [_vm._v("Guardar trabajo")]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.arrayWorks, function(work) {
+        return _c(
+          "div",
+          {
+            key: work.id,
+            staticClass: "modal fade",
+            attrs: { id: "modalDetails" + work.id }
+          },
+          [
+            _c("div", { staticClass: "modal-dialog" }, [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(3, true),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "form-group col-lg-6" }, [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Objetivo:")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", {
+                        domProps: { textContent: _vm._s(work.name) }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-lg-6" }, [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Asinado a:")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", {
+                        domProps: { textContent: _vm._s(work.user.name) }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "form-group col-lg-6" }, [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Complejidad:")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", {
+                        domProps: { textContent: _vm._s(work.complexity.name) }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-lg-6" }, [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Estatus:")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", {
+                        domProps: { textContent: _vm._s(work.progress.name) }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "form-group col-lg-12" }, [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Fecha estimada:")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", {
+                        domProps: { textContent: _vm._s(work.dead_line) }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "form-group col-lg-12" }, [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Descripción:")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", {
+                        domProps: { textContent: _vm._s(work.description) }
+                      })
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(4, true)
+              ])
+            ])
+          ]
+        )
+      })
+    ],
+    2
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-8" }, [
+          _c("p", { staticClass: "card-title" }, [_vm._v("Lista de trabajos")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-4 float-right" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-success",
+              attrs: { href: "#modalStore", "data-toggle": "modal" }
+            },
+            [_vm._v("Agregar trabajo")]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("OBJETIVO")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("HRS")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("ASIGNADO A")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("COMPLEJIDAD")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("ESTATUS")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("FECHA ESTIMADA")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("DETALLES")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("span", { staticClass: "modal-title" }, [_vm._v("Agregar trabajo")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "close", attrs: { "data-dismiss": "modal" } },
+        [_vm._v("×")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("span", { staticClass: "modal-title" }, [_vm._v("Detalles")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "close", attrs: { "data-dismiss": "modal" } },
+        [_vm._v("×")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary-outline",
+          attrs: { "data-dismiss": "modal" }
+        },
+        [_vm._v("Cerrar")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/WorksComponent.vue?vue&type=template&id=e48dcd74&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/WorksComponent.vue?vue&type=template&id=e48dcd74& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {},
+    [
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-lg-12" }, [
           _c("div", { staticClass: "card ml-5 mr-5" }, [
@@ -41735,7 +42550,26 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", {
                           domProps: { textContent: _vm._s(work.dead_line) }
-                        })
+                        }),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary btn-sm",
+                              attrs: {
+                                type: "button",
+                                "data-toggle": "modal",
+                                "data-target": "#modalDetails" + work.id
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                        Ver detalles\n                                    "
+                              )
+                            ]
+                          )
+                        ])
                       ])
                     }),
                     0
@@ -41745,298 +42579,100 @@ var render = function() {
             ])
           ])
         ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "modal fade", attrs: { id: "modalStore" } }, [
-      _c("div", { staticClass: "modal-dialog" }, [
-        _c("div", { staticClass: "modal-content" }, [
-          _vm._m(2),
-          _vm._v(" "),
-          _c("div", { staticClass: "modal-body" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "form-group col-lg-6" }, [
-                _c("label", { attrs: { for: "name" } }, [_vm._v("Objetivo:*")]),
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.arrayWorks, function(work) {
+        return _c(
+          "div",
+          {
+            key: work.id,
+            staticClass: "modal fade",
+            attrs: { id: "modalDetails" + work.id }
+          },
+          [
+            _c("div", { staticClass: "modal-dialog" }, [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(2, true),
                 _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.work.name,
-                      expression: "work.name"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", required: "" },
-                  domProps: { value: _vm.work.name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.work, "name", $event.target.value)
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-lg-6" }, [
-                _c("label", { attrs: { for: "name" } }, [
-                  _vm._v("Asinado a:*")
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "form-group col-lg-6" }, [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Objetivo:")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", {
+                        domProps: { textContent: _vm._s(work.name) }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-lg-6" }, [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Asinado a:")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", {
+                        domProps: { textContent: _vm._s(work.user.name) }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "form-group col-lg-6" }, [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Complejidad:")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", {
+                        domProps: { textContent: _vm._s(work.complexity.name) }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-lg-6" }, [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Estatus:")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", {
+                        domProps: { textContent: _vm._s(work.progress.name) }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "form-group col-lg-12" }, [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Fecha estimada:")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", {
+                        domProps: { textContent: _vm._s(work.dead_line) }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "form-group col-lg-12" }, [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Descripción:")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", {
+                        domProps: { textContent: _vm._s(work.description) }
+                      })
+                    ])
+                  ])
                 ]),
                 _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.work.user_id,
-                        expression: "work.user_id"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { name: "user_id", id: "user_id", required: "" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.work,
-                          "user_id",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  _vm._l(_vm.arrayUsers, function(user) {
-                    return _c("option", {
-                      key: user.id,
-                      domProps: {
-                        value: user.id,
-                        textContent: _vm._s(user.name)
-                      }
-                    })
-                  }),
-                  0
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "form-group col-lg-6" }, [
-                _c("label", { attrs: { for: "name" } }, [
-                  _vm._v("Complejidad:*")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.work.complexity_id,
-                        expression: "work.complexity_id"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      name: "complexity_id",
-                      id: "complexity_id",
-                      required: ""
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.work,
-                          "complexity_id",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  _vm._l(_vm.arrayComplexities, function(complexity) {
-                    return _c("option", {
-                      key: complexity.id,
-                      domProps: {
-                        value: complexity.id,
-                        textContent: _vm._s(complexity.name)
-                      }
-                    })
-                  }),
-                  0
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-lg-6" }, [
-                _c("label", { attrs: { for: "name" } }, [_vm._v("Estatus:*")]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.work.progress_id,
-                        expression: "work.progress_id"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      name: "progress_id",
-                      id: "progress_id",
-                      required: ""
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.work,
-                          "progress_id",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  _vm._l(_vm.arrayProgress, function(progress) {
-                    return _c("option", {
-                      key: progress.id,
-                      domProps: {
-                        value: progress.id,
-                        textContent: _vm._s(progress.name)
-                      }
-                    })
-                  }),
-                  0
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "form-group col-lg-12" }, [
-                _c("label", { attrs: { for: "name" } }, [
-                  _vm._v("Fecha estimada:*")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.work.dead_line,
-                      expression: "work.dead_line"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "date", required: "" },
-                  domProps: { value: _vm.work.dead_line },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.work, "dead_line", $event.target.value)
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "form-group col-lg-12" }, [
-                _c("label", { attrs: { for: "name" } }, [
-                  _vm._v("Descripción:*")
-                ]),
-                _vm._v(" "),
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.work.description,
-                      expression: "work.description"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    name: "description",
-                    id: "description",
-                    required: "",
-                    cols: "30",
-                    rows: "10"
-                  },
-                  domProps: { value: _vm.work.description },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.work, "description", $event.target.value)
-                    }
-                  }
-                })
+                _vm._m(3, true)
               ])
             ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "modal-footer" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-secondary-outline",
-                attrs: { "data-dismiss": "modal" }
-              },
-              [_vm._v("Cancelar")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-success",
-                on: {
-                  click: function($event) {
-                    return _vm.storeWork()
-                  }
-                }
-              },
-              [_vm._v("Guardar trabajo")]
-            )
-          ])
-        ])
-      ])
-    ])
-  ])
+          ]
+        )
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = [
   function() {
@@ -42047,17 +42683,6 @@ var staticRenderFns = [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-lg-8" }, [
           _c("p", { staticClass: "card-title" }, [_vm._v("Lista de trabajos")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-4 float-right" }, [
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-success",
-              attrs: { href: "#modalStore", "data-toggle": "modal" }
-            },
-            [_vm._v("Agregar trabajo")]
-          )
         ])
       ])
     ])
@@ -42078,7 +42703,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("ESTATUS")]),
         _vm._v(" "),
-        _c("th", [_vm._v("FECHA ESTIMADA")])
+        _c("th", [_vm._v("FECHA ESTIMADA")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("DETALLES")])
       ])
     ])
   },
@@ -42087,7 +42714,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
-      _c("span", { staticClass: "modal-title" }, [_vm._v("Agregar trabajo")]),
+      _c("span", { staticClass: "modal-title" }, [_vm._v("Detalles")]),
       _vm._v(" "),
       _c(
         "button",
@@ -42095,231 +42722,20 @@ var staticRenderFns = [
         [_vm._v("×")]
       )
     ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/WorksComponent.vue?vue&type=template&id=e48dcd74&":
-/*!*****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/WorksComponent.vue?vue&type=template&id=e48dcd74& ***!
-  \*****************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", {}, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-lg-12" }, [
-        _c("div", { staticClass: "card ml-5 mr-5" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("table", { staticClass: "table table-striped table-bordered" }, [
-              _vm._m(1),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.arrayWorks, function(work) {
-                  return _c("tr", { key: work.id }, [
-                    _c("td", { domProps: { textContent: _vm._s(work.name) } }),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: work.time,
-                            expression: "work.time"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "number" },
-                        domProps: { value: work.time },
-                        on: {
-                          change: function($event) {
-                            return _vm.updateWork(work)
-                          },
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(work, "time", $event.target.value)
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: work.user_id,
-                              expression: "work.user_id"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { name: "work_user_id", id: "work_user_id" },
-                          domProps: { value: work.user_id },
-                          on: {
-                            change: [
-                              function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  work,
-                                  "user_id",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              },
-                              function($event) {
-                                return _vm.updateWork(work)
-                              }
-                            ]
-                          }
-                        },
-                        _vm._l(_vm.arrayUsers, function(user) {
-                          return _c("option", {
-                            key: user.id,
-                            domProps: {
-                              value: user.id,
-                              textContent: _vm._s(user.name)
-                            }
-                          })
-                        }),
-                        0
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", {
-                      style: "color:" + work.complexity.color,
-                      domProps: { textContent: _vm._s(work.complexity.name) }
-                    }),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: work.progress_id,
-                              expression: "work.progress_id"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            name: "work_progress_id",
-                            id: "work_progress_id"
-                          },
-                          domProps: { value: work.progress_id },
-                          on: {
-                            change: [
-                              function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  work,
-                                  "progress_id",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              },
-                              function($event) {
-                                return _vm.updateWork(work)
-                              }
-                            ]
-                          }
-                        },
-                        _vm._l(_vm.arrayProgress, function(progress) {
-                          return _c("option", {
-                            key: progress.id,
-                            domProps: {
-                              value: progress.id,
-                              textContent: _vm._s(progress.name)
-                            }
-                          })
-                        }),
-                        0
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", {
-                      domProps: { textContent: _vm._s(work.dead_line) }
-                    })
-                  ])
-                }),
-                0
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-lg-8" }, [
-          _c("p", { staticClass: "card-title" }, [_vm._v("Lista de trabajos")])
-        ])
-      ])
-    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("OBJETIVO")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("HRS")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("ASIGNADO A")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("COMPLEJIDAD")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("ESTATUS")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("FECHA ESTIMADA")])
-      ])
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary-outline",
+          attrs: { "data-dismiss": "modal" }
+        },
+        [_vm._v("Cerrar")]
+      )
     ])
   }
 ]

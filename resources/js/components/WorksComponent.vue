@@ -20,6 +20,7 @@
                                     <th>COMPLEJIDAD</th>
                                     <th>ESTATUS</th>
                                     <th>FECHA ESTIMADA</th>
+                                    <th>DETALLES</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -40,9 +41,61 @@
                                         </select>
                                     </td>
                                     <td v-text="work.dead_line"></td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" :data-target="'#modalDetails'+work.id">
+                                            Ver detalles
+                                        </button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div v-for="work in arrayWorks" :key="work.id" class="modal fade" :id="'modalDetails'+work.id">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="modal-title">Detalles</span>
+                        <button class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="name">Objetivo:</label>
+                                <span v-text="work.name"></span>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="name">Asinado a:</label>
+                                <span v-text="work.user.name"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="name">Complejidad:</label>
+                                <span v-text="work.complexity.name"></span>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="name">Estatus:</label>
+                                <span v-text="work.progress.name"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-12">
+                                <label for="name">Fecha estimada:</label>
+                                <span v-text="work.dead_line"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-12">
+                                <label for="name">Descripción:</label>
+                                <p v-text="work.description"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary-outline" data-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
             </div>
