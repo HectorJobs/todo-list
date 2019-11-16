@@ -7,6 +7,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.$ = window.jQuery = require('jquery');
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -21,6 +23,9 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('works-component', require('./components/WorksComponent.vue').default);
+Vue.component('progress-component', require('./components/ProgressComponent.vue').default);
+Vue.component('complexity-component', require('./components/ComplexityComponent.vue').default);
+
 
 
 /**
