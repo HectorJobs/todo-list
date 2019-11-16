@@ -1,15 +1,48 @@
 <template>
-    <div class="container">
+    <div class="">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
+            <div class="col-lg-12">
+                <div class="card ml-5 mr-5">
                     <div class="card-header">
-                        Hola mundo
-                        <div></div>
+                    <div class="row">
+                            <div class="col-lg-8">
+                                <p class="card-title">Lista de trabajos</p>
+                            </div>
+                        </div>
                     </div>
-
                     <div class="card-body">
-                        Componente de trabajos
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>OBJETIVO</th>
+                                    <th>HRS</th>
+                                    <th>ASIGNADO A</th>
+                                    <th>COMPLEJIDAD</th>
+                                    <th>ESTATUS</th>
+                                    <th>FECHA ESTIMADA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="work in arrayWorks" :key="work.id">
+                                    <td v-text="work.name"></td>
+                                    <td>
+                                        <input type="number" class="form-control" v-model="work.time" @change="updateWork(work)">
+                                    </td>
+                                    <td>
+                                        <select name="work_user_id" id="work_user_id" v-model="work.user_id" :value="work.user_id" class="form-control" @change="updateWork(work)">
+                                            <option v-for="user in arrayUsers" :key="user.id" :value="user.id" v-text="user.name"></option>
+                                        </select>
+                                    </td>
+                                    <td v-text="work.complexity.name" :style="'color:'+work.complexity.color"></td>
+                                    <td>
+                                        <select name="work_progress_id" id="work_progress_id" v-model="work.progress_id" :value="work.progress_id" class="form-control" @change="updateWork(work)">
+                                            <option v-for="progress in arrayProgress" :key="progress.id" :value="progress.id" v-text="progress.name"></option>
+                                        </select>
+                                    </td>
+                                    <td v-text="work.dead_line"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -19,11 +52,51 @@
 <script>
 export default {
     mounted() {
-        
+        this.getAllWorks();
     },
     data() {
         return {
-            
+            arrayWorks: [],
+            arrayUsers: [],
+            arrayComplexities: [],
+            arrayProgress: [],
+            work: {
+                name: "",
+                time: 0,
+                user_id: 0,
+                complexity_id: 0,
+                progress_id: 0,
+                dead_line: "",
+                description: ""
+            }
+        }
+    },
+    methods: {
+        getAllWorks(){
+            let that = this;
+            that.work.name = "";
+            that.work.time = "";
+            that.work.user_id = 0;
+            that.work.complexity_id = 0;
+            that.work.progress_id = 0;
+            that.work.dead_line = "";
+            axios.get('http://localhost:8000/api/works').then((result) => {
+                that.arrayWorks = result.data.arrayWorks;
+                that.arrayUsers = result.data.arrayUsers;
+                that.arrayComplexities = result.data.arrayComplexities;
+                that.arrayProgress = result.data.arrayProgress;
+            }).catch((err) => {
+                console.error(err);
+            });
+        },
+        updateWork(work){
+            let that = this;
+            console.log(work);
+            axios.post('http://localhost:8000/api/update/work', work).then((result) => {
+                that.getAllWorks();
+            }).catch((err) => {
+                 console.error(err);
+            });
         }
     },
 }

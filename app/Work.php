@@ -9,7 +9,7 @@ class Work extends Model
     protected $table = "works";
     protected $fillable = [
         "user_id", "progress_id", "complexity_id",
-        "name", "description", "time"
+        "name", "description", "time", "dead_line"
     ];
 
     public function user(){

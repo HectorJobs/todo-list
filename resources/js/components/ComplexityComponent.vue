@@ -1,15 +1,15 @@
 <template>
     <div>
-        <div class="container">
+        <div class="">
             <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card">
+                <div class="col-lg-12">
+                    <div class="card ml-5 mr-5">
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-lg-8">
                                     <p class="card-title">Complejidades</p>
                                 </div>
-                                <div class="col-lg-4 float-right">
+                                <div class="col-lg-4 right">
                                     <a href="#modalStore" data-toggle="modal" class="btn btn-success">Registrar complejidad</a>
                                 </div>
                             </div>
@@ -105,7 +105,6 @@ export default {
         return {
             arrayComplexities:[],
             complexity: {
-                id: 0,
                 name: "",
                 color: "#000000"
             }
@@ -117,7 +116,6 @@ export default {
     methods: {
         getAllComplexities(){
             let that = this;
-            that.complexity.id = 0;
             that.complexity.name = "";
             that.complexity.color = "#000000";
             axios.get('http://localhost:8000/api/complexities').then((result) => {

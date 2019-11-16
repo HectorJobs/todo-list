@@ -1947,7 +1947,6 @@ __webpack_require__.r(__webpack_exports__);
     return {
       arrayComplexities: [],
       complexity: {
-        id: 0,
         name: "",
         color: "#000000"
       }
@@ -1959,7 +1958,6 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getAllComplexities: function getAllComplexities() {
       var that = this;
-      that.complexity.id = 0;
       that.complexity.name = "";
       that.complexity.color = "#000000";
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://localhost:8000/api/complexities').then(function (result) {
@@ -2181,7 +2179,6 @@ __webpack_require__.r(__webpack_exports__);
     return {
       arrayProgress: [],
       progress: {
-        id: 0,
         name: ""
       }
     };
@@ -2192,7 +2189,6 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getAllProgress: function getAllProgress() {
       var that = this;
-      that.progress.id = 0;
       that.progress.name = "";
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://localhost:8000/api/progress').then(function (result) {
         that.arrayProgress = result.data.jsonRes;
@@ -2267,6 +2263,197 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/WorksAdminComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/WorksAdminComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.getAllWorks();
+  },
+  data: function data() {
+    return {
+      arrayWorks: [],
+      arrayUsers: [],
+      arrayComplexities: [],
+      arrayProgress: [],
+      work: {
+        name: "",
+        time: 0,
+        user_id: 0,
+        complexity_id: 0,
+        progress_id: 0,
+        dead_line: "",
+        description: ""
+      }
+    };
+  },
+  methods: {
+    getAllWorks: function getAllWorks() {
+      var that = this;
+      that.work.name = "";
+      that.work.time = "";
+      that.work.user_id = 0;
+      that.work.complexity_id = 0;
+      that.work.progress_id = 0;
+      that.work.dead_line = "";
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://localhost:8000/api/works').then(function (result) {
+        that.arrayWorks = result.data.arrayWorks;
+        that.arrayUsers = result.data.arrayUsers;
+        that.arrayComplexities = result.data.arrayComplexities;
+        that.arrayProgress = result.data.arrayProgress;
+      })["catch"](function (err) {
+        console.error(err);
+      });
+    },
+    storeWork: function storeWork() {
+      var that = this;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('http://localhost:8000/api/store/work', that.work).then(function (result) {
+        window.$('.modal').modal('hide');
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+          icon: 'success',
+          title: 'Registro exitoso',
+          confirmButtonColor: "#38c172"
+        });
+        that.getAllWorks();
+      })["catch"](function (err) {
+        console.error(err);
+      });
+    },
+    updateWork: function updateWork(work) {
+      var that = this;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('http://localhost:8000/api/update/work', work).then(function (result) {
+        that.getAllWorks();
+      })["catch"](function (err) {
+        console.error(err);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/WorksComponent.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/WorksComponent.vue?vue&type=script&lang=js& ***!
@@ -2294,10 +2481,87 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    this.getAllWorks();
+  },
   data: function data() {
-    return {};
+    return {
+      arrayWorks: [],
+      arrayUsers: [],
+      arrayComplexities: [],
+      arrayProgress: [],
+      work: {
+        name: "",
+        time: 0,
+        user_id: 0,
+        complexity_id: 0,
+        progress_id: 0,
+        dead_line: "",
+        description: ""
+      }
+    };
+  },
+  methods: {
+    getAllWorks: function getAllWorks() {
+      var that = this;
+      that.work.name = "";
+      that.work.time = "";
+      that.work.user_id = 0;
+      that.work.complexity_id = 0;
+      that.work.progress_id = 0;
+      that.work.dead_line = "";
+      axios.get('http://localhost:8000/api/works').then(function (result) {
+        that.arrayWorks = result.data.arrayWorks;
+        that.arrayUsers = result.data.arrayUsers;
+        that.arrayComplexities = result.data.arrayComplexities;
+        that.arrayProgress = result.data.arrayProgress;
+      })["catch"](function (err) {
+        console.error(err);
+      });
+    },
+    updateWork: function updateWork(work) {
+      var that = this;
+      console.log(work);
+      axios.post('http://localhost:8000/api/update/work', work).then(function (result) {
+        that.getAllWorks();
+      })["catch"](function (err) {
+        console.error(err);
+      });
+    }
   }
 });
 
@@ -40591,10 +40855,10 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("div", { staticClass: "container" }, [
+      _c("div", {}, [
         _c("div", { staticClass: "row justify-content-center" }, [
-          _c("div", { staticClass: "col-md-8" }, [
-            _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "col-lg-12" }, [
+            _c("div", { staticClass: "card ml-5 mr-5" }, [
               _vm._m(0),
               _vm._v(" "),
               _c("div", { staticClass: "card-body" }, [
@@ -40868,7 +41132,7 @@ var staticRenderFns = [
           _c("p", { staticClass: "card-title" }, [_vm._v("Complejidades")])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-lg-4 float-right" }, [
+        _c("div", { staticClass: "col-lg-4 right" }, [
           _c(
             "a",
             {
@@ -41001,10 +41265,10 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("div", { staticClass: "container" }, [
+      _c("div", {}, [
         _c("div", { staticClass: "row justify-content-center" }, [
-          _c("div", { staticClass: "col-md-8" }, [
-            _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "col-lg-12" }, [
+            _c("div", { staticClass: "card ml-5 mr-5" }, [
               _vm._m(0),
               _vm._v(" "),
               _c("div", { staticClass: "card-body" }, [
@@ -41284,6 +41548,561 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/WorksAdminComponent.vue?vue&type=template&id=28409716&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/WorksAdminComponent.vue?vue&type=template&id=28409716& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", {}, [
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c("div", { staticClass: "card ml-5 mr-5" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "table",
+                { staticClass: "table table-striped table-bordered" },
+                [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.arrayWorks, function(work) {
+                      return _c("tr", { key: work.id }, [
+                        _c("td", {
+                          domProps: { textContent: _vm._s(work.name) }
+                        }),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: work.time,
+                                expression: "work.time"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { type: "number" },
+                            domProps: { value: work.time },
+                            on: {
+                              change: function($event) {
+                                return _vm.updateWork(work)
+                              },
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(work, "time", $event.target.value)
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: work.user_id,
+                                  expression: "work.user_id"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: {
+                                name: "work_user_id",
+                                id: "work_user_id"
+                              },
+                              domProps: { value: work.user_id },
+                              on: {
+                                change: [
+                                  function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      work,
+                                      "user_id",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  },
+                                  function($event) {
+                                    return _vm.updateWork(work)
+                                  }
+                                ]
+                              }
+                            },
+                            _vm._l(_vm.arrayUsers, function(user) {
+                              return _c("option", {
+                                key: user.id,
+                                domProps: {
+                                  value: user.id,
+                                  textContent: _vm._s(user.name)
+                                }
+                              })
+                            }),
+                            0
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", {
+                          style: "color:" + work.complexity.color,
+                          domProps: {
+                            textContent: _vm._s(work.complexity.name)
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: work.progress_id,
+                                  expression: "work.progress_id"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: {
+                                name: "work_progress_id",
+                                id: "work_progress_id"
+                              },
+                              domProps: { value: work.progress_id },
+                              on: {
+                                change: [
+                                  function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      work,
+                                      "progress_id",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  },
+                                  function($event) {
+                                    return _vm.updateWork(work)
+                                  }
+                                ]
+                              }
+                            },
+                            _vm._l(_vm.arrayProgress, function(progress) {
+                              return _c("option", {
+                                key: progress.id,
+                                domProps: {
+                                  value: progress.id,
+                                  textContent: _vm._s(progress.name)
+                                }
+                              })
+                            }),
+                            0
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", {
+                          domProps: { textContent: _vm._s(work.dead_line) }
+                        })
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "modal fade", attrs: { id: "modalStore" } }, [
+      _c("div", { staticClass: "modal-dialog" }, [
+        _c("div", { staticClass: "modal-content" }, [
+          _vm._m(2),
+          _vm._v(" "),
+          _c("div", { staticClass: "modal-body" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "form-group col-lg-6" }, [
+                _c("label", { attrs: { for: "name" } }, [_vm._v("Objetivo:*")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.work.name,
+                      expression: "work.name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", required: "" },
+                  domProps: { value: _vm.work.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.work, "name", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group col-lg-6" }, [
+                _c("label", { attrs: { for: "name" } }, [
+                  _vm._v("Asinado a:*")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.work.user_id,
+                        expression: "work.user_id"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { name: "user_id", id: "user_id", required: "" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.work,
+                          "user_id",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  _vm._l(_vm.arrayUsers, function(user) {
+                    return _c("option", {
+                      key: user.id,
+                      domProps: {
+                        value: user.id,
+                        textContent: _vm._s(user.name)
+                      }
+                    })
+                  }),
+                  0
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "form-group col-lg-6" }, [
+                _c("label", { attrs: { for: "name" } }, [
+                  _vm._v("Complejidad:*")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.work.complexity_id,
+                        expression: "work.complexity_id"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      name: "complexity_id",
+                      id: "complexity_id",
+                      required: ""
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.work,
+                          "complexity_id",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  _vm._l(_vm.arrayComplexities, function(complexity) {
+                    return _c("option", {
+                      key: complexity.id,
+                      domProps: {
+                        value: complexity.id,
+                        textContent: _vm._s(complexity.name)
+                      }
+                    })
+                  }),
+                  0
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group col-lg-6" }, [
+                _c("label", { attrs: { for: "name" } }, [_vm._v("Estatus:*")]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.work.progress_id,
+                        expression: "work.progress_id"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      name: "progress_id",
+                      id: "progress_id",
+                      required: ""
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.work,
+                          "progress_id",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  _vm._l(_vm.arrayProgress, function(progress) {
+                    return _c("option", {
+                      key: progress.id,
+                      domProps: {
+                        value: progress.id,
+                        textContent: _vm._s(progress.name)
+                      }
+                    })
+                  }),
+                  0
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "form-group col-lg-12" }, [
+                _c("label", { attrs: { for: "name" } }, [
+                  _vm._v("Fecha estimada:*")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.work.dead_line,
+                      expression: "work.dead_line"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "date", required: "" },
+                  domProps: { value: _vm.work.dead_line },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.work, "dead_line", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "form-group col-lg-12" }, [
+                _c("label", { attrs: { for: "name" } }, [
+                  _vm._v("Descripción:*")
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.work.description,
+                      expression: "work.description"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    name: "description",
+                    id: "description",
+                    required: "",
+                    cols: "30",
+                    rows: "10"
+                  },
+                  domProps: { value: _vm.work.description },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.work, "description", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "modal-footer" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-secondary-outline",
+                attrs: { "data-dismiss": "modal" }
+              },
+              [_vm._v("Cancelar")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-success",
+                on: {
+                  click: function($event) {
+                    return _vm.storeWork()
+                  }
+                }
+              },
+              [_vm._v("Guardar trabajo")]
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-8" }, [
+          _c("p", { staticClass: "card-title" }, [_vm._v("Lista de trabajos")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-4 float-right" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-success",
+              attrs: { href: "#modalStore", "data-toggle": "modal" }
+            },
+            [_vm._v("Agregar trabajo")]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("OBJETIVO")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("HRS")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("ASIGNADO A")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("COMPLEJIDAD")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("ESTATUS")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("FECHA ESTIMADA")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("span", { staticClass: "modal-title" }, [_vm._v("Agregar trabajo")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "close", attrs: { "data-dismiss": "modal" } },
+        [_vm._v("×")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/WorksComponent.vue?vue&type=template&id=e48dcd74&":
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/WorksComponent.vue?vue&type=template&id=e48dcd74& ***!
@@ -41299,29 +42118,207 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", {}, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
+        _c("div", { staticClass: "card ml-5 mr-5" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("table", { staticClass: "table table-striped table-bordered" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.arrayWorks, function(work) {
+                  return _c("tr", { key: work.id }, [
+                    _c("td", { domProps: { textContent: _vm._s(work.name) } }),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: work.time,
+                            expression: "work.time"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "number" },
+                        domProps: { value: work.time },
+                        on: {
+                          change: function($event) {
+                            return _vm.updateWork(work)
+                          },
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(work, "time", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: work.user_id,
+                              expression: "work.user_id"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { name: "work_user_id", id: "work_user_id" },
+                          domProps: { value: work.user_id },
+                          on: {
+                            change: [
+                              function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  work,
+                                  "user_id",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              },
+                              function($event) {
+                                return _vm.updateWork(work)
+                              }
+                            ]
+                          }
+                        },
+                        _vm._l(_vm.arrayUsers, function(user) {
+                          return _c("option", {
+                            key: user.id,
+                            domProps: {
+                              value: user.id,
+                              textContent: _vm._s(user.name)
+                            }
+                          })
+                        }),
+                        0
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", {
+                      style: "color:" + work.complexity.color,
+                      domProps: { textContent: _vm._s(work.complexity.name) }
+                    }),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: work.progress_id,
+                              expression: "work.progress_id"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "work_progress_id",
+                            id: "work_progress_id"
+                          },
+                          domProps: { value: work.progress_id },
+                          on: {
+                            change: [
+                              function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  work,
+                                  "progress_id",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              },
+                              function($event) {
+                                return _vm.updateWork(work)
+                              }
+                            ]
+                          }
+                        },
+                        _vm._l(_vm.arrayProgress, function(progress) {
+                          return _c("option", {
+                            key: progress.id,
+                            domProps: {
+                              value: progress.id,
+                              textContent: _vm._s(progress.name)
+                            }
+                          })
+                        }),
+                        0
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", {
+                      domProps: { textContent: _vm._s(work.dead_line) }
+                    })
+                  ])
+                }),
+                0
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("\n                    Hola mundo\n                    "),
-              _c("div")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    Componente de trabajos\n                "
-              )
-            ])
-          ])
+    return _c("div", { staticClass: "card-header" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-8" }, [
+          _c("p", { staticClass: "card-title" }, [_vm._v("Lista de trabajos")])
         ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("OBJETIVO")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("HRS")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("ASIGNADO A")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("COMPLEJIDAD")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("ESTATUS")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("FECHA ESTIMADA")])
       ])
     ])
   }
@@ -53496,6 +54493,7 @@ window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jqu
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 Vue.component('works-component', __webpack_require__(/*! ./components/WorksComponent.vue */ "./resources/js/components/WorksComponent.vue")["default"]);
+Vue.component('works-admin-component', __webpack_require__(/*! ./components/WorksAdminComponent.vue */ "./resources/js/components/WorksAdminComponent.vue")["default"]);
 Vue.component('progress-component', __webpack_require__(/*! ./components/ProgressComponent.vue */ "./resources/js/components/ProgressComponent.vue")["default"]);
 Vue.component('complexity-component', __webpack_require__(/*! ./components/ComplexityComponent.vue */ "./resources/js/components/ComplexityComponent.vue")["default"]);
 /**
@@ -53757,6 +54755,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressComponent_vue_vue_type_template_id_23cd4275___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressComponent_vue_vue_type_template_id_23cd4275___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/WorksAdminComponent.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/WorksAdminComponent.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _WorksAdminComponent_vue_vue_type_template_id_28409716___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./WorksAdminComponent.vue?vue&type=template&id=28409716& */ "./resources/js/components/WorksAdminComponent.vue?vue&type=template&id=28409716&");
+/* harmony import */ var _WorksAdminComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./WorksAdminComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/WorksAdminComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _WorksAdminComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _WorksAdminComponent_vue_vue_type_template_id_28409716___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _WorksAdminComponent_vue_vue_type_template_id_28409716___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/WorksAdminComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/WorksAdminComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/WorksAdminComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_WorksAdminComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./WorksAdminComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/WorksAdminComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_WorksAdminComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/WorksAdminComponent.vue?vue&type=template&id=28409716&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/WorksAdminComponent.vue?vue&type=template&id=28409716& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WorksAdminComponent_vue_vue_type_template_id_28409716___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./WorksAdminComponent.vue?vue&type=template&id=28409716& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/WorksAdminComponent.vue?vue&type=template&id=28409716&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WorksAdminComponent_vue_vue_type_template_id_28409716___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WorksAdminComponent_vue_vue_type_template_id_28409716___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

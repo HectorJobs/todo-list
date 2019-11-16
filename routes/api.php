@@ -29,7 +29,6 @@ Route::middleware('cors')->group(function() {
     Route::post('/delete/progress', 'ProgressController@destroy');
 
     Route::get('/works', 'WorkController@index');
-    Route::post('/store/works', 'WorkController@store');
-    Route::post('/update/works', 'WorkController@update');
-    Route::post('/delete/works', 'WorkController@destroy');
+    Route::post('/store/work', 'WorkController@store');
+    Route::post('/update/work', 'WorkController@update');
 });

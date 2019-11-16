@@ -23,6 +23,7 @@ window.$ = window.jQuery = require('jquery');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('works-component', require('./components/WorksComponent.vue').default);
+Vue.component('works-admin-component', require('./components/WorksAdminComponent.vue').default);
 Vue.component('progress-component', require('./components/ProgressComponent.vue').default);
 Vue.component('complexity-component', require('./components/ComplexityComponent.vue').default);
 
